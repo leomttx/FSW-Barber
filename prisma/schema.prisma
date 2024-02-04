@@ -28,7 +28,7 @@ model Barbershop {
 model Services {
   id           String     @id @default(uuid())
   name         String
-  price        Float //Decimal    @db.Decimal(10, 2) //No máximo 10 digítos antes de , e 2 depois
+  price        Decimal    @db.Decimal(10, 2) //No máximo 10 digítos antes de , e 2 depois
   barbershopId String
   barbershop   Barbershop @relation(fields: [barbershopId], references: [id])
   description  String

@@ -20,9 +20,10 @@ CREATE TABLE "Barbershop" (
 CREATE TABLE "Services" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
-    "price" DOUBLE PRECISION NOT NULL,
+    "price" DECIMAL(10,2) NOT NULL,
     "barbershopId" TEXT NOT NULL,
     "description" TEXT NOT NULL,
+    "imageUrl" TEXT NOT NULL,
 
     CONSTRAINT "Services_pkey" PRIMARY KEY ("id")
 );
