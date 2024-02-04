@@ -2,6 +2,7 @@
   "name": "fsw-barber",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,12 +11,16 @@
   },
   "dependencies": {
     "@prisma/client": "^5.9.1",
+    "faker": "^6.6.6",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18"
   },
+  "prisma": {
+    "seed": "ts-node prisma/seed.mjs"
+  },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^20.11.16",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
@@ -26,6 +31,7 @@
     "prettier-plugin-tailwindcss": "^0.5.11",
     "prisma": "^5.9.1",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   }
 }
