@@ -35,11 +35,22 @@ export default async function Home() {
         <div className="px-5 mt-6">
           <h2 className="mb-3 text-sm uppercase text-gray-400 font-bold">Recomendados</h2>
 
-          <div className="flex gap-2 overflow-x-auto [&::-webkit-scrollbar]:hidden">
-            {barbershops.map((barbershop) => (
-            <BarbershopItem key={barbershop.id} barbershop={barbershop}/>
-            ))}
-          </div>
+            <div className="flex gap-2 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+              {barbershops.map((barbershop) => (
+              <BarbershopItem key={barbershop.id} barbershop={barbershop}/>
+              ))}
+            </div>
+
+            <div className="px-5 mt-6 mb-[4.5rem]">
+              <h2 className="mb-3 text-sm uppercase text-gray-400 font-bold">Populares</h2>
+
+              <div className="flex gap-2 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+                {barbershops.map((barbershop) => (
+                <BarbershopItem key={barbershop.id} barbershop={barbershop}/>
+                ))}
+              </div>
+              
+            </div>
 
         </div>
       
