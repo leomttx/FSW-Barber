@@ -38,20 +38,9 @@
 
 @layer base {
   * {
-    border: var(--border);
+    @apply border-border;
   }
   body {
-    .bg-background {
-      background-color: var(--background);
-    }
-    
-    .text-foreground {
-      color: var(--foreground);
-    }
-    
-    .antialiased {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+    @apply bg-background text-foreground antialiased;
   }
 }
