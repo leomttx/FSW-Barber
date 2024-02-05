@@ -41,7 +41,7 @@ export default async function Home() {
               ))}
             </div>
 
-            <div className="px-5 mt-6 mb-[4.5rem]">
+            <div className="mt-6 mb-[4.5rem]">
               <h2 className="mb-3 text-sm uppercase text-gray-400 font-bold">Populares</h2>
 
               <div className="flex gap-2 overflow-x-auto [&::-webkit-scrollbar]:hidden">
