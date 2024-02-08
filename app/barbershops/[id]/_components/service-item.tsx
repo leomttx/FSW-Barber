@@ -14,8 +14,9 @@ import { Services } from "@prisma/client";
 import { ptBR } from "date-fns/locale";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { DayPicker } from "react-day-picker";
+import { generateDayTimelist } from "../_helpers/hours";
 
 interface ServiceItemProps {
   service: Services;
@@ -24,6 +25,13 @@ interface ServiceItemProps {
 
 const ServiceItem = ({ service, isAuthenticaded }: ServiceItemProps) => {
   const [date, setDate] = useState<Date | undefined>(new Date());
+
+  const [hour, setHour] = useState<string | undefined>();
+
+  const handleHourClick = (time: string) => {
+    setHour(time);
+  };
+
   const handleBookingClick = () => {
     if (!isAuthenticaded) {
       return signIn();
@@ -31,6 +39,12 @@ const ServiceItem = ({ service, isAuthenticaded }: ServiceItemProps) => {
 
     // TODO: Implementar a lógica de reserva
   };
+
+  const timeList = useMemo(() => {
+    return date ? generateDayTimelist(date) : [];
+  }, [date]);
+
+  console.log(timeList);
   return (
     <Card>
       <CardContent className="p-3 w-fulll">
@@ -100,8 +114,20 @@ const ServiceItem = ({ service, isAuthenticaded }: ServiceItemProps) => {
                     }}
                   />
                   {/* Mostrar lista de horarios apenas se a data for selecionada */}
+
                   {date && (
-                    
+                    <div className=" flex gap-3 overflow-x-auto py-6 px-5 border-y border-solid border-secondary [&::-webkit-scrollbar]:hidden">
+                      {timeList.map((time) => (
+                        <Button
+                          variant={hour === time ? "default" : "outline"}
+                          className="rounded-full"
+                          key={time}
+                          onClick={() => handleHourClick(time)}
+                        >
+                          {time}
+                        </Button>
+                      ))}
+                    </div>
                   )}
                 </SheetContent>
               </Sheet>
